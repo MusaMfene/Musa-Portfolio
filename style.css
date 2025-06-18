@@ -1,0 +1,231 @@
+/* Basic Reset & Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Fallback font */
+    /* If using Google Fonts, uncomment and change: font-family: 'Poppins', sans-serif; */
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    padding: 20px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-arrow {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.year {
+    font-size: 18px;
+    color: #bbb;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+}
+
+.hero-image {
+    width: 250px; /* Adjust size as needed */
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border: 2px solid transparent; /* Placeholder for glow effect */
+    animation: glow 1.5s infinite alternate; /* CSS Animation for glow */
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF;
+    }
+    to {
+        box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+    }
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+.linkedin-link {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #0077B5; /* LinkedIn blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.linkedin-link:hover {
+    background-color: #005f99;
+}
+
+/* Sections General Styling */
+section {
+    padding: 60px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #eee;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* This reverses the order of the columns (image on right, text on left) */
+.content-grid.reverse-grid {
+    grid-template-areas: "text-area image-area";
+}
+
+.content-grid.reverse-grid .text-content {
+    grid-area: text-area;
+}
+
+.content-grid.reverse-grid .image-wrapper {
+    grid-area: image-area;
+}
+
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Slightly rounded corners for images */
+}
+
+.text-content h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.text-content p, .text-content ul {
+    font-size: 1.1em;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.text-content ul {
+    list-style-type: disc; /* Or none if you want custom styling */
+    padding-left: 20px;
+}
+
+.text-content ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.footer p {
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+
+    /* Reset grid areas for stacking on small screens */
+    .content-grid.reverse-grid {
+        grid-template-areas: none;
+    }
+    .content-grid.reverse-grid .text-content,
+    .content-grid.reverse-grid .image-wrapper {
+        grid-area: unset;
+    }
+
+
+    .image-wrapper {
+        margin-bottom: 30px; /* Add space between image and text when stacked */
+    }
+
+    .text-content h3 {
+        font-size: 1.5em;
+    }
+
+    .text-content p, .text-content ul {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .linkedin-link {
+        padding: 8px 20px;
+        font-size: 0.9em;
+    }
+}
